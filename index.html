@@ -626,9 +626,9 @@
       </div>
       <div>
         <label class="text-gray-400 text-sm font-semibold block mb-2">Gói đăng ký</label>
-        <select name="package" class="form-input">
-          <option value="Tự Học — 1.990.000₫">Tự Học — 1.990.000₫</option>
-          <option value="VIP + Mentor — 3.990.000₫" selected>VIP + Mentor — 3.990.000₫ (Phổ biến nhất)</option>
+        <select id="reg-package" name="package" class="form-input">
+          <option value="Tự Học — 1.990.000₫" id="reg-opt-basic">Tự Học — 1.990.000₫</option>
+          <option value="VIP + Mentor — 3.990.000₫" id="reg-opt-vip" selected>VIP + Mentor — 3.990.000₫ (Phổ biến nhất)</option>
         </select>
       </div>
       <div>
@@ -1304,6 +1304,8 @@
         if (tab) tab.textContent = f;
         const qr = document.getElementById('qr-img-basic');
         if (qr) qr.src = `https://img.vietqr.io/image/970407-10300495-compact2.png?amount=${p.price}&addInfo=THENEWRICH%20Tu%20Hoc&accountName=NGUYEN%20HUU%20THANH%20BINH`;
+        const opt = document.getElementById('reg-opt-basic');
+        if (opt) { opt.textContent = `Tự Học — ${f}`; opt.value = `Tự Học — ${f}`; }
       }
       if (p.id === 2) {
         const f = fmt(p.price);
@@ -1313,6 +1315,8 @@
         if (tab) tab.textContent = f;
         const qr = document.getElementById('qr-img-vip');
         if (qr) qr.src = `https://img.vietqr.io/image/970407-10300495-compact2.png?amount=${p.price}&addInfo=THENEWRICH%20VIP&accountName=NGUYEN%20HUU%20THANH%20BINH`;
+        const opt = document.getElementById('reg-opt-vip');
+        if (opt) { opt.textContent = `VIP + Mentor — ${f} (Phổ biến nhất)`; opt.value = `VIP + Mentor — ${f}`; }
       }
     });
   }).catch(() => {});
