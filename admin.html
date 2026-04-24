@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel — thenewrich</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    * { font-family: 'Be Vietnam Pro', sans-serif; }
+    body { background: #0a0a0a; color: #f0f0f0; }
+    .tab-btn { padding: 8px 20px; border-radius: 6px; font-weight: 700; font-size: 14px; cursor: pointer; border: 1px solid #333; color: #888; background: transparent; transition: all 0.2s; }
+    .tab-btn.active { background: #22c55e; color: #000; border-color: #22c55e; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; padding: 10px 12px; background: #111; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid #222; }
+    td { padding: 12px; border-bottom: 1px solid #1a1a1a; font-size: 14px; vertical-align: middle; }
+    tr:hover td { background: #111; }
+    .badge { display:inline-block; padding:2px 10px; border-radius:20px; font-size:11px; font-weight:700; }
+    .badge-pending { background:#2a1a00; color:#f59e0b; }
+    .badge-success { background:#0d1f14; color:#22c55e; }
+    .form-input { background:#111; border:1px solid #2a2a2a; border-radius:6px; padding:8px 12px; color:#f0f0f0; font-size:14px; width:100%; font-family:'Be Vietnam Pro',sans-serif; }
+    .form-input:focus { outline:none; border-color:#22c55e; }
+    .btn { padding:8px 16px; border-radius:6px; font-weight:700; font-size:13px; cursor:pointer; border:none; transition:all 0.2s; font-family:'Be Vietnam Pro',sans-serif; }
+    .btn-green { background:#22c55e; color:#000; }
+    .btn-green:hover { background:#16a34a; }
+    .btn-red { background:#1f0d0d; color:#ef4444; border:1px solid #ef444433; }
+    .btn-red:hover { background:#ef4444; color:#fff; }
+    .btn-blue { background:#0d1a2a; color:#60a5fa; border:1px solid #60a5fa33; }
+    .btn-blue:hover { background:#60a5fa; color:#000; }
+    .modal-bg { position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:50;display:flex;align-items:center;justify-content:center; }
+    .modal { background:#111;border:1px solid #222;border-radius:12px;padding:28px;width:400px;max-width:90vw; }
+  </style>
+</head>
+<body>
+
+<div class="max-w-6xl mx-auto px-4 py-8">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-8">
+    <div>
+      <a href="/" class="text-white font-black text-xl tracking-tight">the<span style="color:#22c55e">newrich</span></a>
+      <span class="text-gray-600 text-sm ml-3">/ Admin Panel</span>
+    </div>
+    <div id="stats" class="text-xs text-gray-500"></div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="flex gap-2 mb-6">
+    <button class="tab-btn active" onclick="switchTab('orders',this)">📦 Đơn hàng<span id="pending-badge" style="color:#f59e0b;font-size:12px;"></span></button>
+    <button class="tab-btn" onclick="switchTab('customers',this)">👥 Khách hàng</button>
+    <button class="tab-btn" onclick="switchTab('products',this)">🛍️ Sản phẩm</button>
+  </div>
+
+  <!-- ORDERS TAB -->
+  <div id="tab-orders" class="tab-panel active">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="font-black text-white">Đơn hàng</h2>
+      <button class="btn btn-green" onclick="openAddOrder()">+ Thêm đơn</button>
+    </div>
+    <div style="background:#111;border:1px solid #1e1e1e;border-radius:8px;overflow:auto;">
+      <table id="orders-table">
+        <thead><tr>
+          <th>Mã đơn</th><th>Khách hàng</th><th>Sản phẩm</th><th>Số tiền</th><th>Trạng thái</th><th>Ngày tạo</th><th>Thao tác</th>
+        </tr></thead>
+        <tbody id="orders-body"><tr><td colspan="7" class="text-center text-gray-600 py-8">Đang tải...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CUSTOMERS TAB -->
+  <div id="tab-customers" class="tab-panel">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="font-black text-white">Khách hàng</h2>
+      <button class="btn btn-green" onclick="openAddCustomer()">+ Thêm khách</button>
+    </div>
+    <div style="background:#111;border:1px solid #1e1e1e;border-radius:8px;overflow:auto;">
+      <table id="customers-table">
+        <thead><tr>
+          <th>#</th><th>Họ tên</th><th>SĐT / Zalo</th><th>Email</th><th>Ngày đăng ký</th>
+        </tr></thead>
+        <tbody id="customers-body"><tr><td colspan="5" class="text-center text-gray-600 py-8">Đang tải...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PRODUCTS TAB -->
+  <div id="tab-products" class="tab-panel">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="font-black text-white">Sản phẩm</h2>
+      <button class="btn btn-green" onclick="openAddProduct()">+ Thêm sản phẩm</button>
+    </div>
+    <div style="background:#111;border:1px solid #1e1e1e;border-radius:8px;overflow:auto;">
+      <table id="products-table">
+        <thead><tr>
+          <th>#</th><th>Tên sản phẩm</th><th>Giá</th><th>Mô tả</th><th>Tồn kho</th><th>Thao tác</th>
+        </tr></thead>
+        <tbody id="products-body"><tr><td colspan="6" class="text-center text-gray-600 py-8">Đang tải...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODALS -->
+<div id="modal" class="modal-bg" style="display:none;">
+  <div class="modal">
+    <h3 id="modal-title" class="font-black text-white text-lg mb-5"></h3>
+    <div id="modal-body"></div>
+    <div class="flex gap-3 mt-5 justify-end">
+      <button class="btn" style="background:#1a1a1a;color:#aaa;" onclick="closeModal()">Huỷ</button>
+      <button class="btn btn-green" id="modal-confirm">Lưu</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const fmt = n => new Intl.NumberFormat('vi-VN').format(n) + '₫';
+
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+    if (name === 'orders') loadOrders();
+    if (name === 'customers') loadCustomers();
+    if (name === 'products') loadProducts();
+  }
+
+  // ── ORDERS ──
+  async function loadOrders() {
+    const res = await fetch('/api/orders');
+    const orders = await res.json();
+    const tbody = document.getElementById('orders-body');
+    if (!orders.length) { tbody.innerHTML = '<tr><td colspan="7" class="text-center text-gray-600 py-8">Chưa có đơn hàng nào</td></tr>'; return; }
+    // Update pending count on tab
+    const pendingCount = orders.filter(o => o.status === 'pending').length;
+    const tabBtn = document.querySelector('.tab-btn.active') || document.querySelector('.tab-btn');
+    const pendingBadge = document.getElementById('pending-badge');
+    if (pendingBadge) pendingBadge.textContent = pendingCount > 0 ? ` (${pendingCount} chờ TT)` : '';
+
+    tbody.innerHTML = orders.map(o => `
+      <tr>
+        <td class="font-mono text-xs text-green-400">${o.order_code}</td>
+        <td>${o.customer_name}<br/><span class="text-gray-500 text-xs">${o.customer_phone}</span></td>
+        <td class="text-sm">${o.product_name}</td>
+        <td class="font-bold" style="color:#22c55e">${fmt(o.amount)}</td>
+        <td><span class="badge ${o.status==='success'?'badge-success':'badge-pending'}">${o.status==='success'?'✓ Thành công':'⏳ Chờ TT'}</span></td>
+        <td class="text-xs text-gray-500">${o.created_at}</td>
+        <td>
+          ${o.status==='pending'?`<button class="btn btn-blue" style="font-size:11px;padding:5px 10px;" onclick="markSuccess(${o.id})">✓ Xác nhận TT</button>`:''}
+          <button class="btn btn-red" style="font-size:11px;padding:5px 10px;margin-left:4px;" onclick="deleteOrder(${o.id})">Xóa</button>
+        </td>
+      </tr>`).join('');
+  }
+
+  async function markSuccess(id) {
+    if (!confirm('Xác nhận đơn hàng này đã thanh toán?')) return;
+    await fetch(`/api/orders?id=${id}`, { method:'PATCH', headers:{'Content-Type':'application/json'}, body: JSON.stringify({status:'success'}) });
+    loadOrders();
+  }
+
+  async function deleteOrder(id) {
+    if (!confirm('Xóa đơn hàng này?')) return;
+    await fetch(`/api/orders?id=${id}`, { method:'DELETE' });
+    loadOrders();
+  }
+
+  function openAddOrder() {
+    document.getElementById('modal-title').textContent = '+ Thêm đơn hàng mới';
+    document.getElementById('modal-body').innerHTML = `
+      <div class="space-y-3">
+        <input id="m_cname" class="form-input" placeholder="Tên khách hàng *"/>
+        <input id="m_cphone" class="form-input" placeholder="SĐT / Zalo *"/>
+        <input id="m_cemail" class="form-input" placeholder="Email"/>
+        <select id="m_product" class="form-input">
+          <option value="1">Tự Học — 1.990.000₫</option>
+          <option value="2">VIP Mentor — 3.990.000₫</option>
+        </select>
+        <select id="m_status" class="form-input">
+          <option value="pending">Chờ thanh toán</option>
+          <option value="success">Đã thanh toán</option>
+        </select>
+      </div>`;
+    document.getElementById('modal-confirm').onclick = async () => {
+      const payload = { customer_name: document.getElementById('m_cname').value, customer_phone: document.getElementById('m_cphone').value, customer_email: document.getElementById('m_cemail').value, product_id: parseInt(document.getElementById('m_product').value) };
+      const res = await fetch('/api/orders', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+      const data = await res.json();
+      if (document.getElementById('m_status').value === 'success') {
+        await fetch(`/api/orders?id=${data.id}`, { method:'PATCH', headers:{'Content-Type':'application/json'}, body: JSON.stringify({status:'success'}) });
+      }
+      closeModal(); loadOrders();
+    };
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  // ── CUSTOMERS ──
+  async function loadCustomers() {
+    const res = await fetch('/api/customers');
+    const list = await res.json();
+    const tbody = document.getElementById('customers-body');
+    if (!list.length) { tbody.innerHTML = '<tr><td colspan="5" class="text-center text-gray-600 py-8">Chưa có khách hàng</td></tr>'; return; }
+    tbody.innerHTML = list.map((c,i) => `
+      <tr>
+        <td class="text-gray-500">${i+1}</td>
+        <td class="font-semibold">${c.name}</td>
+        <td>${c.phone}${c.zalo && c.zalo !== c.phone ? '<br/><span class="text-gray-500 text-xs">Zalo: '+c.zalo+'</span>' : ''}</td>
+        <td class="text-gray-400 text-sm">${c.email || '—'}</td>
+        <td class="text-xs text-gray-500">${c.registered_at}</td>
+      </tr>`).join('');
+  }
+
+  function openAddCustomer() {
+    document.getElementById('modal-title').textContent = '+ Thêm khách hàng';
+    document.getElementById('modal-body').innerHTML = `
+      <div class="space-y-3">
+        <input id="m_name" class="form-input" placeholder="Họ tên"/>
+        <input id="m_phone" class="form-input" placeholder="SĐT"/>
+        <input id="m_zalo" class="form-input" placeholder="Zalo"/>
+        <input id="m_email" class="form-input" placeholder="Email"/>
+      </div>`;
+    document.getElementById('modal-confirm').onclick = async () => {
+      await fetch('/api/customers', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name: document.getElementById('m_name').value, phone: document.getElementById('m_phone').value, zalo: document.getElementById('m_zalo').value, email: document.getElementById('m_email').value }) });
+      closeModal(); loadCustomers();
+    };
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  // ── PRODUCTS ──
+  async function loadProducts() {
+    const res = await fetch('/api/products');
+    const list = await res.json();
+    const tbody = document.getElementById('products-body');
+    if (!list.length) { tbody.innerHTML = '<tr><td colspan="6" class="text-center text-gray-600 py-8">Chưa có sản phẩm</td></tr>'; return; }
+    tbody.innerHTML = list.map(p => `
+      <tr>
+        <td class="text-gray-500">${p.id}</td>
+        <td class="font-semibold">${p.name}</td>
+        <td class="font-bold" style="color:#22c55e">${fmt(p.price)}</td>
+        <td class="text-gray-400 text-sm">${p.description || '—'}</td>
+        <td>${p.quantity}</td>
+        <td>
+          <button class="btn btn-blue" style="font-size:11px;padding:5px 10px;" onclick="openEditProduct(${p.id},'${p.name.replace(/'/g,"\\'")}',${p.price},'${(p.description||'').replace(/'/g,"\\'")}',${p.quantity})">Sửa</button>
+          <button class="btn btn-red" style="font-size:11px;padding:5px 10px;margin-left:4px;" onclick="deleteProduct(${p.id})">Xóa</button>
+        </td>
+      </tr>`).join('');
+  }
+
+  function openAddProduct() {
+    document.getElementById('modal-title').textContent = '+ Thêm sản phẩm';
+    document.getElementById('modal-body').innerHTML = `
+      <div class="space-y-3">
+        <input id="m_pname" class="form-input" placeholder="Tên sản phẩm *"/>
+        <input id="m_price" class="form-input" type="number" placeholder="Giá (VNĐ) *"/>
+        <input id="m_desc" class="form-input" placeholder="Mô tả"/>
+        <input id="m_qty" class="form-input" type="number" placeholder="Số lượng" value="999"/>
+      </div>`;
+    document.getElementById('modal-confirm').onclick = async () => {
+      await fetch('/api/products', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name: document.getElementById('m_pname').value, price: parseInt(document.getElementById('m_price').value), description: document.getElementById('m_desc').value, quantity: parseInt(document.getElementById('m_qty').value) }) });
+      closeModal(); loadProducts();
+    };
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function openEditProduct(id, name, price, desc, qty) {
+    document.getElementById('modal-title').textContent = 'Chỉnh sửa sản phẩm';
+    document.getElementById('modal-body').innerHTML = `
+      <div class="space-y-3">
+        <input id="m_pname" class="form-input" value="${name}"/>
+        <input id="m_price" class="form-input" type="number" value="${price}"/>
+        <input id="m_desc" class="form-input" value="${desc}"/>
+        <input id="m_qty" class="form-input" type="number" value="${qty}"/>
+      </div>`;
+    document.getElementById('modal-confirm').onclick = async () => {
+      await fetch('/api/products', { method:'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ id, name: document.getElementById('m_pname').value, price: parseInt(document.getElementById('m_price').value), description: document.getElementById('m_desc').value, quantity: parseInt(document.getElementById('m_qty').value) }) });
+      closeModal(); loadProducts();
+    };
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  async function deleteProduct(id) {
+    if (!confirm('Xóa sản phẩm này?')) return;
+    await fetch(`/api/products?id=${id}`, { method:'DELETE' });
+    loadProducts();
+  }
+
+  function closeModal() { document.getElementById('modal').style.display = 'none'; }
+
+  // Init
+  loadOrders();
+
+  // Auto-refresh orders tab every 10 seconds
+  setInterval(() => {
+    const ordersActive = document.getElementById('tab-orders').classList.contains('active');
+    if (ordersActive) loadOrders();
+  }, 10000);
+</script>
+</body>
+</html>

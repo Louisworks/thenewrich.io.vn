@@ -1,0 +1,6 @@
+.vercel
+.env*.local
+node_modules/
+resend_config.txt
+brain.db
+.DS_Store

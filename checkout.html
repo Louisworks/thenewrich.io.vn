@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thanh Toán — thenewrich</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    * { font-family: 'Be Vietnam Pro', sans-serif; }
+    body { background: #0a0a0a; color: #f0f0f0; }
+    .green { color: #22c55e; }
+    .form-input {
+      width: 100%; background: #111; border: 1px solid #2a2a2a;
+      border-radius: 6px; padding: 12px 16px; color: #f0f0f0;
+      font-size: 15px; transition: border-color 0.2s; font-family: 'Be Vietnam Pro', sans-serif;
+    }
+    .form-input:focus { outline: none; border-color: #22c55e; }
+    .form-input::placeholder { color: #555; }
+    select.form-input option { background: #111; }
+    .btn-green {
+      background: #22c55e; color: #000; font-weight: 900;
+      border-radius: 6px; border: none; cursor: pointer;
+      transition: background 0.2s; font-family: 'Be Vietnam Pro', sans-serif;
+    }
+    .btn-green:hover { background: #16a34a; }
+    .card { background: #111; border: 1px solid #222; border-radius: 12px; }
+    #step-form { display: block; }
+    #step-qr  { display: none; }
+    #step-done { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="min-h-screen flex flex-col items-center justify-center px-4 py-12">
+
+  <!-- Logo -->
+  <a href="/" class="text-white font-black text-xl mb-8 tracking-tight">the<span class="green">newrich</span></a>
+
+  <!-- STEP 1: Form -->
+  <div id="step-form" class="card p-8 w-full max-w-md">
+    <div class="text-center mb-8">
+      <div class="text-xs text-gray-500 uppercase tracking-widest font-bold mb-2">Đăng ký khoá học</div>
+      <h1 class="text-2xl font-black text-white">Giữ Chỗ Ngay</h1>
+      <p class="text-gray-400 text-sm mt-2">Điền thông tin — mình sẽ gửi QR thanh toán ngay.</p>
+    </div>
+
+    <form id="checkoutForm" class="space-y-4">
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Họ tên *</label>
+        <input id="f_name" type="text" required placeholder="Nguyễn Văn A" class="form-input"/>
+      </div>
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Số điện thoại / Zalo *</label>
+        <input id="f_phone" type="tel" required placeholder="0938 xxx xxx" class="form-input"/>
+      </div>
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Email *</label>
+        <input id="f_email" type="email" required placeholder="ten@gmail.com" class="form-input"/>
+      </div>
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Chọn gói</label>
+        <select id="f_product" class="form-input">
+          <option value="2" selected>VIP + Mentor — 3.990.000₫ (Phổ biến nhất)</option>
+          <option value="1">Tự Học — 1.990.000₫</option>
+          <option value="3">🧪 Test — 2.000₫ (chỉ dùng để test)</option>
+        </select>
+      </div>
+      <button type="submit" id="submitBtn" class="btn-green w-full py-4 text-base mt-2">
+        Tiếp tục → Xem QR thanh toán
+      </button>
+    </form>
+  </div>
+
+  <!-- STEP 2: QR -->
+  <div id="step-qr" class="card p-8 w-full max-w-md">
+    <div class="text-center mb-6">
+      <div class="text-green-400 text-sm font-bold mb-1">✓ Đơn hàng đã tạo</div>
+      <h2 class="text-2xl font-black text-white">Quét QR Thanh Toán</h2>
+      <p class="text-gray-400 text-sm mt-2">Chuyển đúng số tiền và nội dung — hệ thống tự xác nhận.</p>
+    </div>
+
+    <div class="bg-white rounded-xl p-4 flex justify-center mb-5">
+      <img id="qr-img" src="" alt="QR thanh toán" class="w-52 h-52"/>
+    </div>
+
+    <div class="space-y-2 text-sm mb-5" style="background:#0d1f14;border:1px solid #22c55e33;border-radius:8px;padding:16px;">
+      <div class="flex justify-between"><span class="text-gray-400">Ngân hàng</span><span class="text-white font-bold">MB Bank</span></div>
+      <div class="flex justify-between"><span class="text-gray-400">Số TK</span><span class="text-white font-bold">3004956886</span></div>
+      <div class="flex justify-between"><span class="text-gray-400">Chủ TK</span><span class="text-white font-bold">NGUYEN HUU THANH BINH</span></div>
+      <div class="flex justify-between"><span class="text-gray-400">Số tiền</span><span class="text-green-400 font-black text-base" id="qr-amount"></span></div>
+      <div class="flex justify-between items-center"><span class="text-gray-400">Nội dung CK</span>
+        <button onclick="copyCode()" class="text-green-400 font-black" id="qr-code"></button>
+      </div>
+    </div>
+
+    <div id="payment-status" class="text-center text-gray-400 text-sm py-3 rounded-lg" style="background:#111;border:1px solid #222;">
+      <span id="status-text">⏳ Đang chờ thanh toán...</span>
+    </div>
+    <p class="text-gray-600 text-xs text-center mt-3">Hệ thống tự xác nhận sau khi tiền vào. Thường dưới 30 giây.</p>
+  </div>
+
+  <!-- STEP 3: Success -->
+  <div id="step-done" class="card p-8 w-full max-w-md text-center">
+    <div class="text-5xl mb-4">🎉</div>
+    <h2 class="text-2xl font-black text-white mb-2">Thanh toán thành công!</h2>
+    <p class="text-gray-400 text-sm mb-6">Mình đã nhận được tiền. Louis sẽ nhắn Zalo để cấp quyền truy cập khoá học trong vòng 30 phút.</p>
+    <a href="https://zalo.me/0938481507" target="_blank" class="btn-green inline-block px-8 py-3 text-sm">💬 Nhắn Zalo ngay</a>
+  </div>
+
+</div>
+
+<script>
+  let currentOrderId = null;
+  let pollInterval = null;
+
+  document.getElementById('checkoutForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Đang tạo đơn hàng...';
+    btn.disabled = true;
+
+    const payload = {
+      customer_name: document.getElementById('f_name').value.trim(),
+      customer_phone: document.getElementById('f_phone').value.trim(),
+      customer_email: document.getElementById('f_email').value.trim(),
+      product_id: parseInt(document.getElementById('f_product').value)
+    };
+
+    try {
+      const res = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Lỗi tạo đơn');
+
+      currentOrderId = data.id;
+      showQR(data);
+    } catch (err) {
+      alert('Lỗi: ' + err.message);
+      btn.textContent = 'Tiếp tục → Xem QR thanh toán';
+      btn.disabled = false;
+    }
+  });
+
+  function showQR(order) {
+    document.getElementById('step-form').style.display = 'none';
+    document.getElementById('step-qr').style.display = 'block';
+
+    const amount = order.amount;
+    const code = order.order_code;
+    const amountFmt = new Intl.NumberFormat('vi-VN').format(amount) + '₫';
+
+    document.getElementById('qr-amount').textContent = amountFmt;
+    document.getElementById('qr-code').textContent = code + ' 📋';
+
+    // VietQR for MB Bank
+    const qrUrl = `https://img.vietqr.io/image/970422-3004956886-compact2.png?amount=${amount}&addInfo=${encodeURIComponent(code)}&accountName=NGUYEN%20HUU%20THANH%20BINH`;
+    document.getElementById('qr-img').src = qrUrl;
+
+    // Poll for payment
+    pollInterval = setInterval(checkPayment, 3000);
+  }
+
+  async function checkPayment() {
+    if (!currentOrderId) return;
+    try {
+      const res = await fetch(`/api/orders?id=${currentOrderId}`);
+      const order = await res.json();
+      if (order.status === 'success') {
+        clearInterval(pollInterval);
+        document.getElementById('step-qr').style.display = 'none';
+        document.getElementById('step-done').style.display = 'block';
+      }
+    } catch (_) {}
+  }
+
+  function copyCode() {
+    const code = document.getElementById('qr-code').textContent.replace(' 📋', '');
+    navigator.clipboard.writeText(code).then(() => {
+      document.getElementById('qr-code').textContent = '✓ Đã copy!';
+      setTimeout(() => document.getElementById('qr-code').textContent = code + ' 📋', 2000);
+    });
+  }
+</script>
+</body>
+</html>

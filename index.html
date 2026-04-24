@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xây Kênh Nhân Hiệu – Nổi Bật, Được Trả Tiền, Sống Đúng Nghĩa | thenewrich</title>
+  <meta name="description" content="Khoá học thực chiến giúp bạn xây dựng thương hiệu cá nhân mạnh mẽ, thu hút khách hàng và tạo thu nhập từ chuyên môn của mình." />
+  <meta property="og:title" content="Xây Kênh Nhân Hiệu – Nổi Bật, Được Trả Tiền, Sống Đúng Nghĩa" />
+  <meta property="og:description" content="Hệ thống thực chiến giúp bạn xây thương hiệu cá nhân mạnh mẽ — thu hút đúng người, tạo thu nhập bền vững từ chuyên môn bạn đã có sẵn." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thenewrich.io.vn" />
+  <meta property="og:image" content="https://thenewrich.io.vn/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://thenewrich.io.vn/og.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Be Vietnam Pro', sans-serif; box-sizing: border-box; }
+    body { background: #0a0a0a; color: #f0f0f0; overflow-x: hidden; }
+
+    .green { color: #22c55e; }
+    .green-bg { background: #22c55e; }
+
+    .btn-green {
+      background: #22c55e;
+      color: #000;
+      font-weight: 900;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-green:hover { background: #16a34a; transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 2px solid #22c55e;
+      color: #22c55e;
+      font-weight: 700;
+      border-radius: 6px;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: #22c55e; color: #000; }
+
+    .section-dark { background: #0a0a0a; }
+    .section-card { background: #111111; }
+    .section-alt  { background: #141414; }
+
+    .card {
+      background: #161616;
+      border: 1px solid #222;
+      border-radius: 8px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { border-color: #22c55e; transform: translateY(-3px); }
+
+    .green-card {
+      background: #0d1f14;
+      border: 1px solid #22c55e44;
+      border-radius: 8px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #0d1f14;
+      border: 1px solid #22c55e55;
+      color: #22c55e;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 4px;
+    }
+
+    .pain-card {
+      background: #111;
+      border-left: 3px solid #ef4444;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 22px;
+    }
+
+    .check { color: #22c55e; font-weight: 900; margin-right: 8px; }
+    .cross { color: #555; margin-right: 8px; }
+
+    .module-num {
+      background: #22c55e;
+      color: #000;
+      font-weight: 900;
+      font-size: 13px;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pulse-green {
+      animation: pulseG 2s infinite;
+    }
+    @keyframes pulseG {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+      50%       { box-shadow: 0 0 0 16px rgba(34,197,94,0); }
+    }
+
+    .ticker {
+      background: #22c55e;
+      color: #000;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      padding: 8px 0;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 20s linear infinite;
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .sticky-nav {
+      backdrop-filter: blur(12px);
+      background: rgba(10,10,10,0.9);
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    details summary { list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+
+    .divider { height: 1px; background: #1e1e1e; }
+    .divider-green { height: 2px; background: linear-gradient(90deg, transparent, #22c55e, transparent); }
+
+    .stat-box {
+      background: #111;
+      border: 1px solid #1e1e1e;
+      border-radius: 8px;
+      text-align: center;
+      padding: 20px 16px;
+    }
+
+    .testimonial-card {
+      background: #111;
+      border: 1px solid #1e1e1e;
+      border-radius: 8px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .testimonial-card:hover { border-color: #22c55e55; }
+
+    .avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: #22c55e22;
+      border: 2px solid #22c55e55;
+      display: flex; align-items: center; justify-content: center;
+      color: #22c55e;
+      font-weight: 900;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .pricing-popular {
+      border: 2px solid #22c55e;
+      background: #0d1f14;
+      position: relative;
+    }
+
+    .faq-item {
+      background: #111;
+      border: 1px solid #1e1e1e;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .faq-item[open] { border-color: #22c55e44; }
+    .faq-item summary {
+      padding: 18px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #f0f0f0;
+    }
+    .faq-item summary:hover { color: #22c55e; }
+    .faq-body { padding: 0 20px 18px; color: #999; font-size: 14px; line-height: 1.7; }
+
+    .guarantee-box {
+      background: #0d1f14;
+      border: 1px solid #22c55e33;
+      border-radius: 8px;
+      padding: 24px 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* QR Tabs */
+    .qr-tab { cursor: pointer; padding: 10px 22px; border-radius: 6px; font-weight: 700; font-size: 14px; transition: all 0.2s; border: 1px solid #333; color: #888; }
+    .qr-tab.active { background: #22c55e; color: #000; border-color: #22c55e; }
+    .qr-panel { display: none; }
+    .qr-panel.active { display: block; }
+
+    /* Form */
+    .form-input {
+      width: 100%;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: #f0f0f0;
+      font-size: 15px;
+      transition: border-color 0.2s;
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
+    .form-input:focus { outline: none; border-color: #22c55e; }
+    .form-input::placeholder { color: #555; }
+    select.form-input option { background: #111; }
+
+    /* Floating Zalo */
+    .float-zalo {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #0068FF;
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 13px 20px 13px 16px;
+      border-radius: 50px;
+      box-shadow: 0 6px 24px rgba(0,104,255,0.4);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .float-zalo:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,104,255,0.5); }
+    .float-zalo svg { width: 22px; height: 22px; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+<!-- ── TICKER BAR ── -->
+<div class="ticker">
+  <span class="ticker-inner">
+    ✦ 300+ học viên đã có kết quả &nbsp;&nbsp;&nbsp; ✦ 85% thấy tăng trưởng sau 30 ngày &nbsp;&nbsp;&nbsp; ✦ Bảo đảm hoàn tiền 30 ngày &nbsp;&nbsp;&nbsp; ✦ Khoá học thực chiến #1 về Nhân Hiệu Cá Nhân tại Việt Nam &nbsp;&nbsp;&nbsp; ✦ 300+ học viên đã có kết quả &nbsp;&nbsp;&nbsp; ✦ 85% thấy tăng trưởng sau 30 ngày &nbsp;&nbsp;&nbsp; ✦ Bảo đảm hoàn tiền 30 ngày &nbsp;&nbsp;&nbsp; ✦ Khoá học thực chiến #1 về Nhân Hiệu Cá Nhân tại Việt Nam &nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+
+<!-- ── STICKY NAV ── -->
+<nav class="sticky-nav fixed top-0 w-full z-50" style="top: 32px;">
+  <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+    <div class="text-white font-black text-lg tracking-tight">
+      the<span class="green">newrich</span>
+    </div>
+    <a href="#dang-ky" class="btn-green text-sm px-5 py-2">Đăng Ký Ngay →</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="section-dark pt-40 pb-20">
+  <div class="max-w-5xl mx-auto px-5 text-center">
+
+    <div class="tag mb-6">🔥 Khoá học thực chiến #1 về Nhân Hiệu Cá Nhân</div>
+
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6">
+      Từ "Người Bình Thường"<br/>
+      <span class="green">Thành Chuyên Gia Được Trả Tiền</span><br/>
+      Chỉ Trong 60 Ngày
+    </h1>
+
+    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      Hệ thống thực chiến giúp bạn xây thương hiệu cá nhân mạnh mẽ — thu hút đúng người, tạo thu nhập bền vững từ chuyên môn bạn <strong class="text-white">đã có sẵn.</strong>
+    </p>
+
+    <!-- Stats row -->
+    <div class="flex flex-wrap justify-center gap-8 mb-10 text-sm text-gray-400">
+      <div><span class="text-yellow-400">★★★★★</span> &nbsp;4.9/5 từ 300+ học viên</div>
+      <div><span class="green">✓</span> &nbsp;60 ngày thực chiến có cấu trúc</div>
+      <div><span class="green">✓</span> &nbsp;Kết quả đảm bảo hoặc hoàn tiền</div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+      <a href="#dang-ky" class="btn-green pulse-green text-lg px-10 py-5">
+        🚀 Tôi Muốn Xây Nhân Hiệu Ngay
+      </a>
+      <a href="#noi-dung" class="btn-outline text-lg px-10 py-5">
+        Xem Nội Dung Khoá Học ↓
+      </a>
+    </div>
+
+    <!-- Stat boxes -->
+    <div class="grid grid-cols-3 gap-4 max-w-sm mx-auto">
+      <div class="stat-box">
+        <div class="text-3xl font-black green">300+</div>
+        <div class="text-xs text-gray-500 mt-1">Học viên</div>
+      </div>
+      <div class="stat-box">
+        <div class="text-3xl font-black green">85%</div>
+        <div class="text-xs text-gray-500 mt-1">Kết quả 30 ngày</div>
+      </div>
+      <div class="stat-box">
+        <div class="text-3xl font-black green">60</div>
+        <div class="text-xs text-gray-500 mt-1">Ngày thực chiến</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider-green"></div>
+
+<!-- ── VẤN ĐỀ ── -->
+<section class="section-alt py-20">
+  <div class="max-w-4xl mx-auto px-5">
+    <div class="text-center mb-14">
+      <div class="tag mb-4" style="border-color:#ef444455; color:#ef4444; background:#1f0d0d;">Bạn có đang gặp phải...</div>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Những Nỗi Đau Này Không?</h2>
+    </div>
+
+    <div class="space-y-4">
+      <div class="pain-card">
+        <div class="font-black text-white mb-1">😩 Giỏi nghề nhưng không ai biết đến bạn</div>
+        <div class="text-gray-400 text-sm leading-relaxed">Bạn có kiến thức, có kinh nghiệm — nhưng vẫn phải cạnh tranh giá với người kém hơn vì họ "nổi" hơn bạn trên mạng.</div>
+      </div>
+      <div class="pain-card">
+        <div class="font-black text-white mb-1">📉 Đăng bài đều đặn mà vẫn không có khách</div>
+        <div class="text-gray-400 text-sm leading-relaxed">Cứ đăng content, nhưng lượt xem thấp, không ai nhắn tin hỏi mua, không rõ mình đang làm đúng hay sai.</div>
+      </div>
+      <div class="pain-card">
+        <div class="font-black text-white mb-1">🤷 Không biết mình là "chuyên gia" về cái gì</div>
+        <div class="text-gray-400 text-sm leading-relaxed">Làm được nhiều thứ, nhưng khi được hỏi "bạn giỏi nhất cái gì?" — lại không trả lời được một cách tự tin.</div>
+      </div>
+      <div class="pain-card">
+        <div class="font-black text-white mb-1">💸 Thu nhập phụ thuộc hoàn toàn vào công việc chính</div>
+        <div class="text-gray-400 text-sm leading-relaxed">Không có nguồn thu từ thương hiệu cá nhân. Nếu mất việc hoặc muốn nghỉ — bạn không biết sẽ sống bằng gì.</div>
+      </div>
+      <div class="pain-card">
+        <div class="font-black text-white mb-1">😰 Thấy người khác làm được mà tự hỏi "Tại sao không phải mình?"</div>
+        <div class="text-gray-400 text-sm leading-relaxed">Thấy bạn bè, đồng nghiệp xây được kênh, kiếm được tiền từ nhân hiệu — trong khi bạn vẫn đứng nhìn vì không biết bắt đầu từ đâu.</div>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center green-card p-6">
+      <p class="text-lg font-bold text-white">Vấn đề không phải bạn thiếu tài năng.</p>
+      <p class="text-gray-400 mt-2 text-sm">Vấn đề là bạn chưa có <strong class="text-white">hệ thống</strong> để đóng gói và truyền thông chuyên môn của mình.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── GIẢI PHÁP / NỘI DUNG ── -->
+<section class="section-dark py-20" id="noi-dung">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="text-center mb-14">
+      <div class="tag mb-4">Giải pháp</div>
+      <h2 class="text-3xl md:text-5xl font-black text-white">
+        Giới Thiệu: <span class="green">Khoá Học Xây Kênh Nhân Hiệu</span>
+      </h2>
+      <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
+        Hệ thống 60 ngày có cấu trúc rõ ràng — từ tìm định vị đến tạo nội dung thu tiền — dành cho người bận rộn, không cần kinh nghiệm làm content.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <div class="card p-6 flex gap-4">
+        <div class="module-num">1</div>
+        <div>
+          <div class="text-xs text-gray-500 uppercase tracking-widest mb-1">Module 1</div>
+          <h3 class="font-black text-white mb-2">Định Vị Nhân Hiệu</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Tìm ra điểm mạnh độc đáo, xác định thị trường ngách, và xây dựng tuyên ngôn thương hiệu cá nhân khiến người ta nhớ mãi.</p>
+        </div>
+      </div>
+
+      <div class="card p-6 flex gap-4">
+        <div class="module-num">2</div>
+        <div>
+          <div class="text-xs text-gray-500 uppercase tracking-widest mb-1">Module 2</div>
+          <h3 class="font-black text-white mb-2">Content Thu Hút</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Công thức viết bài, làm video, và xây dựng lịch đăng nội dung 30 ngày — không cần sáng tạo, chỉ cần làm đúng hệ thống.</p>
+        </div>
+      </div>
+
+      <div class="card p-6 flex gap-4">
+        <div class="module-num">3</div>
+        <div>
+          <div class="text-xs text-gray-500 uppercase tracking-widest mb-1">Module 3</div>
+          <h3 class="font-black text-white mb-2">Hệ Sinh Thái Kênh</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Chọn đúng nền tảng, tối ưu profile, liên kết các kênh lại thành hệ thống tự động kéo khách về.</p>
+        </div>
+      </div>
+
+      <div class="card p-6 flex gap-4">
+        <div class="module-num">4</div>
+        <div>
+          <div class="text-xs text-gray-500 uppercase tracking-widest mb-1">Module 4</div>
+          <h3 class="font-black text-white mb-2">Monetize Nhân Hiệu</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">6 cách kiếm tiền từ thương hiệu cá nhân: coaching, khoá học, affiliate, dịch vụ, nói chuyện thuê, và cộng đồng trả phí.</p>
+        </div>
+      </div>
+
+      <div class="card p-6 flex gap-4">
+        <div class="module-num">5</div>
+        <div>
+          <div class="text-xs text-gray-500 uppercase tracking-widest mb-1">Module 5</div>
+          <h3 class="font-black text-white mb-2">Xây Dựng Audience</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Chiến lược tăng follower chất lượng, xây cộng đồng trung thành, và biến người theo dõi thành khách hàng sẵn sàng trả tiền.</p>
+        </div>
+      </div>
+
+      <div class="card p-6 flex gap-4" style="border-color:#22c55e44; background:#0d1f14;">
+        <div class="module-num" style="background:#22c55e22; color:#22c55e; border: 1px solid #22c55e55;">★</div>
+        <div>
+          <div class="text-xs green uppercase tracking-widest mb-1 font-bold">Bonus</div>
+          <h3 class="font-black text-white mb-2">100+ Templates & Swipe File</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">100+ mẫu caption, script video, email, và pitch template — copy và chỉnh sửa để dùng ngay trong 24 giờ đầu tiên.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-green"></div>
+
+<!-- ── LỢI ÍCH ── -->
+<section class="section-alt py-20">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="text-center mb-14">
+      <div class="tag mb-4">Sau khoá học này</div>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Bạn Sẽ Có Được...</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4">
+
+      <div class="card p-5 flex gap-4">
+        <div class="text-2xl flex-shrink-0">🧠</div>
+        <div>
+          <h3 class="font-bold text-white mb-1">Định vị rõ ràng — người ta biết bạn là ai ngay lần đầu</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Không còn mơ hồ "tôi làm gì". Bạn sẽ có một câu định vị sắc bén khiến khách hàng lý tưởng tìm đến bạn.</p>
+        </div>
+      </div>
+
+      <div class="card p-5 flex gap-4">
+        <div class="text-2xl flex-shrink-0">📈</div>
+        <div>
+          <h3 class="font-bold text-white mb-1">Kênh nội dung chạy ổn định, không cần cảm hứng</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Hệ thống lên lịch và tái chế nội dung giúp bạn đăng đều đặn dù bận rộn đến đâu.</p>
+        </div>
+      </div>
+
+      <div class="card p-5 flex gap-4">
+        <div class="text-2xl flex-shrink-0">💼</div>
+        <div>
+          <h3 class="font-bold text-white mb-1">Khách hàng chủ động nhắn tin — không cần chạy quảng cáo</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Thương hiệu mạnh = khách hàng tự tìm đến. Bạn không phải "bán hàng" nữa, chỉ cần đưa ra lời mời.</p>
+        </div>
+      </div>
+
+      <div class="card p-5 flex gap-4">
+        <div class="text-2xl flex-shrink-0">💰</div>
+        <div>
+          <h3 class="font-bold text-white mb-1">Nguồn thu nhập mới từ chuyên môn bạn đã có</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Biến kiến thức thành khoá học, dịch vụ, hay buổi tư vấn — tạo thu nhập thêm 10–50 triệu/tháng từ nhân hiệu.</p>
+        </div>
+      </div>
+
+      <div class="card p-5 flex gap-4">
+        <div class="text-2xl flex-shrink-0">🌟</div>
+        <div>
+          <h3 class="font-bold text-white mb-1">Sự tự tin khi xuất hiện trước đám đông</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Không còn ngại lên camera hay viết bài vì "sợ người ta phán xét". Bạn biết mình đại diện cho điều gì.</p>
+        </div>
+      </div>
+
+      <div class="card p-5 flex gap-4">
+        <div class="text-2xl flex-shrink-0">🛡️</div>
+        <div>
+          <h3 class="font-bold text-white mb-1">Tài sản dài hạn — nhân hiệu không ai lấy được của bạn</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Dù thay đổi công việc hay ngành nghề, thương hiệu cá nhân vẫn theo bạn và tiếp tục tạo cơ hội mới.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section-dark py-20">
+  <div class="max-w-5xl mx-auto px-5">
+    <div class="text-center mb-14">
+      <div class="tag mb-4">Học viên nói gì</div>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Kết Quả Thực Tế</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5">
+
+      <div class="testimonial-card">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-gray-300 text-sm leading-relaxed mb-6">"Trước đây tôi có 500 follow sau 2 năm. Sau 45 ngày áp dụng theo hệ thống, tôi có thêm 3.200 follow và ký được 2 hợp đồng coaching đầu tiên."</p>
+        <div class="flex items-center gap-3">
+          <div class="avatar">TH</div>
+          <div>
+            <div class="font-bold text-white text-sm">Trần Hương</div>
+            <div class="text-gray-500 text-xs">Career Coach, Hà Nội</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-gray-300 text-sm leading-relaxed mb-6">"Tôi là freelancer thiết kế. Sau khoá học, tôi tăng giá gấp đôi và khách hàng vẫn chấp nhận vì họ thấy được giá trị của tôi qua nhân hiệu."</p>
+        <div class="flex items-center gap-3">
+          <div class="avatar">MK</div>
+          <div>
+            <div class="font-bold text-white text-sm">Minh Khoa</div>
+            <div class="text-gray-500 text-xs">Freelance Designer, TP.HCM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-gray-300 text-sm leading-relaxed mb-6">"Làm HR 8 năm nhưng không ai biết. Giờ tôi có newsletter 1.200 người đọc và được mời nói chuyện tại 2 hội thảo lớn chỉ trong 3 tháng."</p>
+        <div class="flex items-center gap-3">
+          <div class="avatar">NL</div>
+          <div>
+            <div class="font-bold text-white text-sm">Nguyễn Linh</div>
+            <div class="text-gray-500 text-xs">HR Manager, Đà Nẵng</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-green"></div>
+
+<!-- ── PRICING ── -->
+<section class="section-alt py-20" id="dang-ky">
+  <div class="max-w-4xl mx-auto px-5">
+    <div class="text-center mb-14">
+      <div class="tag mb-4">Đầu tư</div>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Chọn Gói Phù Hợp</h2>
+      <p class="text-gray-400 mt-3 text-sm">Mỗi gói đều có bảo đảm hoàn tiền 30 ngày — hoàn toàn không rủi ro.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+
+      <!-- Basic -->
+      <div class="card p-8">
+        <div class="text-xs text-gray-500 uppercase tracking-widest font-bold mb-3">Tự Học</div>
+        <div class="text-4xl font-black text-white mb-1">1.990.000₫</div>
+        <p class="text-gray-500 text-sm mb-7">Truy cập trọn đời · Cập nhật miễn phí</p>
+        <ul class="space-y-3 mb-8 text-sm">
+          <li><span class="check">✓</span><span class="text-gray-300">5 module video chi tiết (60+ bài giảng)</span></li>
+          <li><span class="check">✓</span><span class="text-gray-300">100+ templates &amp; swipe file</span></li>
+          <li><span class="check">✓</span><span class="text-gray-300">Lịch content 30 ngày</span></li>
+          <li><span class="check">✓</span><span class="text-gray-300">Cộng đồng học viên</span></li>
+          <li><span class="cross">✗</span><span class="text-gray-600">Feedback 1-1 từ mentor</span></li>
+          <li><span class="cross">✗</span><span class="text-gray-600">Review nhân hiệu cá nhân</span></li>
+        </ul>
+        <a href="#thanh-toan" class="btn-outline block text-center py-4 text-sm">Đăng Ký Gói Tự Học</a>
+      </div>
+
+      <!-- VIP -->
+      <div class="pricing-popular rounded-lg p-8 relative">
+        <div class="absolute top-4 right-4" style="background:#22c55e; color:#000; font-size:11px; font-weight:900; padding: 3px 10px; border-radius:4px; letter-spacing:0.05em;">PHỔ BIẾN NHẤT</div>
+        <div class="text-xs green uppercase tracking-widest font-bold mb-3">VIP + Mentor</div>
+        <div class="text-4xl font-black text-white mb-1">3.990.000₫</div>
+        <p class="text-gray-400 text-sm mb-7">Truy cập trọn đời · Mentor 60 ngày</p>
+        <ul class="space-y-3 mb-8 text-sm">
+          <li><span class="check">✓</span><span class="text-gray-200">Tất cả từ gói Tự Học</span></li>
+          <li><span class="check">✓</span><span class="text-gray-200"><strong class="text-white">4 buổi feedback 1-1</strong> với mentor</span></li>
+          <li><span class="check">✓</span><span class="text-gray-200">Review profile &amp; kênh cá nhân</span></li>
+          <li><span class="check">✓</span><span class="text-gray-200">Nhóm VIP hỗ trợ riêng</span></li>
+          <li><span class="check">✓</span><span class="text-gray-200">Workshop live hàng tháng</span></li>
+          <li><span class="check">✓</span><span class="text-gray-200">Chứng chỉ hoàn thành</span></li>
+        </ul>
+        <a href="#thanh-toan" class="btn-green pulse-green block text-center py-4 text-sm">🚀 Đăng Ký Gói VIP Mentor</a>
+      </div>
+
+    </div>
+
+    <!-- Guarantee -->
+    <div class="guarantee-box">
+      <div class="text-4xl flex-shrink-0">🛡️</div>
+      <div>
+        <h3 class="font-black text-white mb-1">Bảo Đảm Hoàn Tiền 30 Ngày</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Nếu sau 30 ngày học bạn không hài lòng với nội dung, chỉ cần nhắn tin — chúng tôi hoàn tiền 100% không hỏi lý do. Bạn không có gì để mất.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── REGISTRATION FORM ── -->
+<section class="section-alt py-20" id="dang-ky-form">
+  <div class="max-w-lg mx-auto px-5">
+    <div class="text-center mb-10">
+      <div class="tag mb-4">Đăng Ký</div>
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-3">Giữ Chỗ Ngay</h2>
+      <p class="text-gray-400 text-sm">Điền thông tin — mình sẽ liên hệ xác nhận trong vòng 30 phút.</p>
+    </div>
+
+    <form id="regForm" class="space-y-4" onsubmit="submitForm(event)">
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Họ tên *</label>
+        <input type="text" name="name" required placeholder="Nguyễn Văn A" class="form-input" />
+      </div>
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Số điện thoại / Zalo *</label>
+        <input type="tel" name="phone" required placeholder="0938 xxx xxx" class="form-input" />
+      </div>
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Gói đăng ký</label>
+        <select name="package" class="form-input">
+          <option value="Tự Học — 1.990.000₫">Tự Học — 1.990.000₫</option>
+          <option value="VIP + Mentor — 3.990.000₫" selected>VIP + Mentor — 3.990.000₫ (Phổ biến nhất)</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Bạn đang làm nghề gì hiện tại? *</label>
+        <input type="text" name="job" required placeholder="Vd: Marketing, Kế toán, Giáo viên, Freelancer..." class="form-input" />
+      </div>
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Bạn đã từng thử xây dựng personal brand chưa? *</label>
+        <select name="tried_before" required class="form-input">
+          <option value="">— Chọn —</option>
+          <option value="Chưa bao giờ thử">Chưa bao giờ thử</option>
+          <option value="Đã thử nhưng bỏ giữa chừng">Đã thử nhưng bỏ giữa chừng</option>
+          <option value="Đang làm nhưng chưa ra kết quả">Đang làm nhưng chưa ra kết quả</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Khó khăn lớn nhất của bạn là gì? *</label>
+        <select name="pain" required class="form-input">
+          <option value="">— Chọn —</option>
+          <option value="Không biết bắt đầu từ đâu">Không biết bắt đầu từ đâu</option>
+          <option value="Không có thời gian làm content">Không có thời gian làm content</option>
+          <option value="Không biết viết / ngại xuất hiện">Không biết viết / ngại xuất hiện</option>
+          <option value="Làm rồi nhưng không có ai xem">Làm rồi nhưng không có ai xem</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-gray-400 text-sm font-semibold block mb-2">Mục tiêu bạn muốn đạt sau 60 ngày?</label>
+        <textarea name="goal" rows="2" placeholder="Vd: Có 500 followers chất, ra được 1 khoá học, kiếm thêm 10tr/tháng..." class="form-input" style="resize:vertical;"></textarea>
+      </div>
+      <button type="submit" id="submitBtn" class="btn-green w-full py-4 text-base border-0 cursor-pointer" style="width:100%;">
+        ✅ Gửi Đăng Ký — Giữ Chỗ Cho Tôi
+      </button>
+      <p class="text-gray-600 text-xs text-center">Sau khi gửi, mình sẽ nhắn Zalo xác nhận trong 30 phút ☑️</p>
+    </form>
+
+    <div id="formSuccess" class="hidden text-center py-10">
+      <div class="text-5xl mb-4">🎉</div>
+      <h3 class="text-2xl font-black text-white mb-2">Đã nhận thông tin!</h3>
+      <p class="text-gray-400 text-sm mb-6">Mình sẽ nhắn Zalo cho bạn trong 30 phút để xác nhận và hướng dẫn thanh toán.</p>
+      <a href="https://zalo.me/0938481507" target="_blank" class="btn-green inline-block px-8 py-3">💬 Nhắn Zalo Luôn</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── PAYMENT / QR ── -->
+<section class="section-dark py-20" id="thanh-toan">
+  <div class="max-w-md mx-auto px-5 text-center">
+    <h2 class="text-3xl font-black text-white mb-2">Thanh Toán</h2>
+    <p class="text-gray-400 text-sm mb-6">Quét QR hoặc chuyển khoản thủ công — xác nhận qua Zalo để nhận quyền truy cập ngay.</p>
+
+    <!-- QR Tabs -->
+    <div class="flex gap-3 justify-center mb-6">
+      <button class="qr-tab active" onclick="switchQR('basic', this)">Gói Tự Học<br/><span style="font-size:12px;font-weight:900;">1.990.000₫</span></button>
+      <button class="qr-tab" onclick="switchQR('vip', this)">Gói VIP Mentor<br/><span style="font-size:12px;font-weight:900;">3.990.000₫</span></button>
+    </div>
+
+    <div class="card p-6 mb-6">
+      <!-- Basic QR -->
+      <div id="qr-basic" class="qr-panel active">
+        <img
+          src="https://img.vietqr.io/image/970407-10300495-compact2.png?amount=1990000&addInfo=THENEWRICH%20Tu%20Hoc&accountName=NGUYEN%20HUU%20THANH%20BINH"
+          alt="QR Thanh toán Gói Tự Học"
+          class="w-52 h-52 mx-auto rounded-lg mb-4"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <div style="display:none;" class="w-52 h-52 mx-auto rounded-lg flex items-center justify-center text-gray-600 text-sm mb-4" style="background:#111;border:2px dashed #333;">QR không tải được<br/>Dùng thông tin bên dưới</div>
+        <p class="text-xs text-gray-500 mb-1">Nội dung chuyển khoản:</p>
+        <p class="text-sm font-bold green">THENEWRICH TU HOC + [Tên bạn]</p>
+      </div>
+
+      <!-- VIP QR -->
+      <div id="qr-vip" class="qr-panel">
+        <img
+          src="https://img.vietqr.io/image/970407-10300495-compact2.png?amount=3990000&addInfo=THENEWRICH%20VIP&accountName=NGUYEN%20HUU%20THANH%20BINH"
+          alt="QR Thanh toán Gói VIP"
+          class="w-52 h-52 mx-auto rounded-lg mb-4"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <div style="display:none;" class="w-52 h-52 mx-auto rounded-lg flex items-center justify-center text-gray-600 text-sm mb-4" style="background:#111;border:2px dashed #333;">QR không tải được<br/>Dùng thông tin bên dưới</div>
+        <p class="text-xs text-gray-500 mb-1">Nội dung chuyển khoản:</p>
+        <p class="text-sm font-bold green">THENEWRICH VIP + [Tên bạn]</p>
+      </div>
+
+      <!-- Bank info -->
+      <div class="text-sm text-gray-400 space-y-0 text-left mt-5" style="border-top:1px solid #1e1e1e;padding-top:16px;">
+        <div class="flex justify-between py-2" style="border-bottom: 1px solid #1e1e1e;">
+          <span class="text-gray-500">Ngân hàng</span>
+          <span class="text-white font-semibold">Techcombank</span>
+        </div>
+        <div class="flex justify-between py-2" style="border-bottom: 1px solid #1e1e1e;">
+          <span class="text-gray-500">Số tài khoản</span>
+          <button onclick="navigator.clipboard.writeText('10300495').then(()=>this.textContent='✓ Đã copy!')" class="text-white font-semibold hover:text-green-400 transition" style="background:none;border:none;cursor:pointer;font-family:inherit;">10300495 📋</button>
+        </div>
+        <div class="flex justify-between py-2">
+          <span class="text-gray-500">Chủ TK</span>
+          <span class="text-white font-semibold">NGUYEN HUU THANH BINH</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-gray-500 text-xs mb-6">Sau khi chuyển khoản, nhắn bill qua Zalo để được kích hoạt trong <strong class="text-white">15 phút</strong>.</p>
+
+    <a href="https://zalo.me/0938481507" target="_blank" class="btn-green block text-center py-4">
+      💬 Nhắn Bill Xác Nhận Qua Zalo
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── FAQ ── -->
+<section class="section-alt py-20">
+  <div class="max-w-3xl mx-auto px-5">
+    <h2 class="text-3xl md:text-4xl font-black text-white text-center mb-12">Câu Hỏi Thường Gặp</h2>
+    <div class="space-y-3">
+
+      <details class="faq-item">
+        <summary>
+          Tôi không biết gì về làm content, có học được không?
+          <span class="green text-xl">+</span>
+        </summary>
+        <div class="faq-body">Hoàn toàn có thể. Khoá học được thiết kế từ nền tảng, giả định bạn chưa biết gì. Hệ thống template và hướng dẫn từng bước sẽ giúp bạn tạo nội dung ngay từ tuần đầu tiên.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Tôi rất bận, mỗi ngày chỉ có 30–60 phút, có đủ không?
+          <span class="green text-xl">+</span>
+        </summary>
+        <div class="faq-body">Đủ. Khoá học được thiết kế cho người bận rộn. Mỗi bài giảng dưới 15 phút, có lịch học mini-task hàng ngày chỉ cần 20–30 phút thực hành.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Tôi phải dùng nền tảng nào? Facebook, TikTok hay LinkedIn?
+          <span class="green text-xl">+</span>
+        </summary>
+        <div class="faq-body">Khoá học bao gồm chiến lược cho tất cả: Facebook, TikTok, LinkedIn, YouTube, và Instagram. Bạn sẽ được hướng dẫn chọn đúng 1–2 kênh phù hợp với bạn thay vì ôm đồm hết.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Bao lâu thì thấy kết quả?
+          <span class="green text-xl">+</span>
+        </summary>
+        <div class="faq-body">85% học viên thấy tăng trưởng về follower và tương tác sau 30 ngày đầu. Kết quả monetize (khách hàng, thu nhập) thường xuất hiện ở tuần 6–8 khi thương hiệu đã đủ mạnh.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Nếu không hài lòng, tôi có được hoàn tiền không?
+          <span class="green text-xl">+</span>
+        </summary>
+        <div class="faq-body">Có. Chính sách hoàn tiền 30 ngày, không điều kiện. Chỉ cần nhắn tin trong 30 ngày đầu và bạn sẽ được hoàn tiền 100%.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-green"></div>
+
+<!-- ── FINAL CTA ── -->
+<section class="section-dark py-24">
+  <div class="max-w-3xl mx-auto px-5 text-center">
+    <div class="text-4xl mb-6">🚀</div>
+    <h2 class="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">
+      Đừng Để Thêm Một Năm Nữa Trôi Qua<br/>
+      <span class="green">Mà Vẫn Chưa Ai Biết Đến Bạn</span>
+    </h2>
+    <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+      Người giỏi nhất không phải lúc nào cũng thắng. Người biết cách <strong class="text-white">xây nhân hiệu</strong> mới là người kiếm được nhiều cơ hội nhất.
+    </p>
+    <a href="#dang-ky" class="btn-green pulse-green text-xl px-12 py-6">
+      ✅ Tôi Sẵn Sàng Xây Nhân Hiệu Ngay Hôm Nay
+    </a>
+    <p class="text-gray-600 text-xs mt-5">🛡️ Bảo đảm hoàn tiền 30 ngày &nbsp;·&nbsp; Truy cập trọn đời &nbsp;·&nbsp; Bắt đầu học ngay sau 15 phút</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer style="background:#080808; border-top: 1px solid #1a1a1a;" class="py-8">
+  <div class="max-w-5xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="text-white font-black text-lg">the<span class="green">newrich</span></div>
+    <div class="text-gray-600 text-xs text-center">
+      © 2026 · thenewrich · Mọi thắc mắc: <a href="mailto:nhtbinh3004@gmail.com" class="green hover:underline">nhtbinh3004@gmail.com</a>
+    </div>
+    <div class="flex gap-5 text-xs text-gray-600">
+      <a href="#" class="hover:text-white transition">Điều khoản</a>
+      <a href="#" class="hover:text-white transition">Chính sách hoàn tiền</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Zalo -->
+<a href="https://zalo.me/0938481507" target="_blank" class="float-zalo" title="Nhắn Zalo">
+  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="48" height="48" rx="12" fill="#0068FF"/>
+    <path d="M24 10C16.268 10 10 15.82 10 23c0 4.07 1.97 7.71 5.06 10.22L13.5 38l5.3-1.73A14.9 14.9 0 0024 37c7.732 0 14-5.82 14-13S31.732 10 24 10z" fill="white"/>
+    <path d="M18 22h3m3 0h3M18 26h8" stroke="#0068FF" stroke-width="2" stroke-linecap="round"/>
+    <path d="M16 27l2-1.5L15 21l4 1 1-3 3 5 3-2-1 5 3 1-5 1" fill="#0068FF" opacity="0"/>
+  </svg>
+  Nhắn Zalo
+</a>
+
+<!-- ── CHATBOT ── -->
+<style>
+  #chat-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 16px;
+    z-index: 99999;
+    background: #22c55e;
+    color: #000;
+    border-radius: 50px;
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 18px 12px 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 28px rgba(34,197,94,0.6);
+    border: none;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+  #chat-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(34,197,94,0.7); }
+  #chat-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+  #chat-badge {
+    position: absolute;
+    top: -4px; right: -4px;
+    background: #ef4444;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 900;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  #chat-window {
+    position: fixed;
+    bottom: 172px;
+    right: 24px;
+    z-index: 1000;
+    width: 340px;
+    max-width: calc(100vw - 32px);
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    display: none;
+    flex-direction: column;
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+  #chat-window.open { display: flex; }
+
+  #chat-header {
+    background: #22c55e;
+    color: #000;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 800;
+    font-size: 14px;
+  }
+  #chat-header-info { display: flex; align-items: center; gap: 10px; }
+  #chat-avatar {
+    width: 32px; height: 32px;
+    background: #000;
+    color: #22c55e;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 13px;
+  }
+  #chat-close {
+    background: none; border: none; cursor: pointer;
+    color: #000; font-size: 18px; line-height: 1; padding: 0;
+  }
+
+  #chat-messages {
+    padding: 14px 12px;
+    height: 280px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scroll-behavior: smooth;
+  }
+  #chat-messages::-webkit-scrollbar { width: 4px; }
+  #chat-messages::-webkit-scrollbar-track { background: transparent; }
+  #chat-messages::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+  .msg-bot, .msg-user {
+    max-width: 86%;
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 10px 13px;
+    border-radius: 12px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .msg-bot {
+    background: #1a1a1a;
+    color: #e5e5e5;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  .msg-user {
+    background: #22c55e;
+    color: #000;
+    font-weight: 700;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+
+  #chat-quick {
+    padding: 6px 12px 8px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .quick-btn {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    color: #ccc;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    transition: all 0.15s;
+  }
+  .quick-btn:hover { border-color: #22c55e; color: #22c55e; }
+
+  #chat-input-row {
+    display: flex;
+    border-top: 1px solid #1e1e1e;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  #chat-input {
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    padding: 8px 14px;
+    color: #f0f0f0;
+    font-size: 13px;
+    outline: none;
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+  #chat-input:focus { border-color: #22c55e; }
+  #chat-input::placeholder { color: #555; }
+  #chat-send {
+    background: #22c55e;
+    border: none;
+    border-radius: 50%;
+    width: 34px; height: 34px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  #chat-send:hover { background: #16a34a; }
+  #chat-send svg { width: 16px; height: 16px; }
+
+  .msg-link {
+    color: #22c55e;
+    text-decoration: underline;
+    font-weight: 700;
+    cursor: pointer;
+  }
+</style>
+
+<!-- Chat button -->
+<button id="chat-btn" onclick="toggleChat()" title="Chat với trợ lý">
+  <span id="chat-badge">1</span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  💬 Tư vấn ngay
+</button>
+
+<!-- Chat window -->
+<div id="chat-window">
+  <div id="chat-header">
+    <div id="chat-header-info">
+      <div id="chat-avatar">NR</div>
+      <div>
+        <div>Trợ lý thenewrich</div>
+        <div style="font-size:11px;font-weight:600;opacity:0.8;">● Online · Phản hồi ngay</div>
+      </div>
+    </div>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+
+  <div id="chat-messages"></div>
+
+  <div id="chat-quick">
+    <button class="quick-btn" onclick="sendQuick('Giá bao nhiêu?')">💰 Giá</button>
+    <button class="quick-btn" onclick="sendQuick('Khoá học dạy gì?')">📚 Nội dung</button>
+    <button class="quick-btn" onclick="sendQuick('Tôi bận đi làm được không?')">⏰ Bận</button>
+    <button class="quick-btn" onclick="sendQuick('Có hoàn tiền không?')">🛡️ Hoàn tiền</button>
+    <button class="quick-btn" onclick="sendQuick('Đăng ký ngay')">✅ Đăng ký</button>
+  </div>
+
+  <div id="chat-input-row">
+    <input id="chat-input" type="text" placeholder="Nhắn gì đó..." onkeydown="if(event.key==='Enter')sendMsg()" />
+    <button id="chat-send" onclick="sendMsg()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  // ── CHATBOT LOGIC ──
+
+  // Chuẩn hoá text: bỏ dấu, lowercase, trim
+  function norm(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g,'d').replace(/Đ/g,'D').trim();
+  }
+
+  // Match bất kỳ keyword nào trong mảng với text đã norm
+  function anyMatch(normText, keywords) {
+    return keywords.some(k => normText.includes(norm(k)));
+  }
+
+  const REPLY_NGANH = `Phù hợp với bất kỳ ngành nào 👍\n\nHọc viên đã có kết quả từ đủ ngành: kỹ sư, bác sĩ, giáo viên, HR, kế toán, luật sư, tài chính, thiết kế, bán hàng, dược, xây dựng, công nghệ...\n\nNguyên tắc đơn giản: khách hàng chọn người, không chỉ chọn dịch vụ. Bạn càng có chuyên môn thật — nhân hiệu càng mạnh, dù ngành nào.`;
+
+  // Danh sách nghề nghiệp phổ biến để nhận diện
+  const NGHE_NGHIEP = [
+    'bác sĩ','bac si','y tá','ya ta','dược','duoc','điều dưỡng',
+    'giáo viên','giao vien','giảng viên','giang vien','thầy giáo','cô giáo','gia sư',
+    'kỹ sư','ky su','kĩ sư','lập trình','dev','developer','coder','it','công nghệ','cntt',
+    'kế toán','ke toan','tài chính','tai chinh','kiểm toán','kiem toan','ngân hàng','ngan hang',
+    'luật','luat','luật sư','luat su',
+    'thiết kế','thiet ke','designer','đồ họa','do hoa',
+    'marketing','sales','bán hàng','ban hang','kinh doanh','kinh doanh',
+    'hr','nhân sự','nhan su','tuyển dụng','tuyen dung',
+    'xây dựng','xay dung','kiến trúc','kien truc',
+    'giám đốc','giam doc','quản lý','quan ly','manager',
+    'freelancer','tự do','tu do',
+    'photographer','nhiếp ảnh','nhiep anh',
+    'content','creator','youtuber','tiktoker','blogger',
+    'coach','tư vấn','tu van','consultant',
+    'doanh nhân','doanh nhan','startup','khởi nghiệp',
+    'nha si','nha sĩ','nhà sĩ',
+    'spa','thẩm mỹ','tham my','nail',
+    'đầu bếp','dau bep','ẩm thực','am thuc','nhà hàng',
+    'logistics','chuỗi cung ứng','xuat nhap khau','xuất nhập khẩu',
+    'bảo hiểm','bao hiem','môi giới','moi gioi',
+    'giáo dục','giao duc','đào tạo','dao tao',
+    'y học','y hoc','sức khỏe','suc khoe',
+    'tâm lý','tam ly','social work',
+    'nghề','nghe','nganh','ngành','chuyen mon','chuyên môn',
+    'liên quan','lien quan','phù hợp','phu hop','hop voi','hợp với',
+    'ngành của tôi','nganh cua toi','ngành tôi','nganh toi',
+  ];
+
+  const RESPONSES = [
+    {
+      keys: ['giá','bao nhiêu','chi phí','cost','price','hoc phi','học phí'],
+      reply: `Có 2 gói:\n\n💼 Tự Học — 1.990.000₫\n→ 60+ bài giảng, 100+ templates, truy cập trọn đời\n\n⭐ VIP + Mentor — 3.990.000₫ (phổ biến nhất)\n→ Thêm 4 buổi feedback 1-1, mentor review kênh cá nhân của bạn\n\nCả 2 gói đều bảo đảm hoàn tiền 30 ngày — không hài lòng hoàn ngay, không hỏi lý do.\n\nBạn đang nghiêng về gói nào? 👇`
+    },
+    {
+      keys: ['dạy gì','day gi','nội dung','noi dung','chương trình','chuong trinh','module','học gì','hoc gi','gồm gì','bao gồm'],
+      reply: `Hệ thống 60 ngày từ A–Z:\n\n📌 Module 1 → Định vị nhân hiệu\n📌 Module 2 → Công thức tạo nội dung\n📌 Module 3 → Setup kênh đúng cách\n📌 Module 4 → Kiếm tiền từ nhân hiệu (6 cách)\n📌 Module 5 → Xây audience chất lượng\n🎁 Bonus → 100+ template dùng ngay\n\nDùng được trong 24h đầu tiên sau khi mua.`
+    },
+    {
+      keys: ['bận','ban','thời gian','thoi gian','full-time','di lam','đi làm'],
+      reply: `Được — phần lớn học viên đang đi làm full-time khi học.\n\nMỗi ngày 30–45 phút là đủ. Video xem offline, không cần đúng giờ cố định.\n\nThật ra lý do cần xây nhân hiệu là vì đang bận — để sau này không phải đổi giờ lấy tiền nữa 😄`
+    },
+    {
+      keys: ['viết','viet','không biết viết','ngại','ngai','camera','diễn đạt','dien dat','không giỏi','khong gioi'],
+      reply: `Không cần giỏi viết từ đầu.\n\nModule 2 có 100+ template viết sẵn, chỉ cần điền theo công thức. Có hướng dẫn riêng cho người không muốn lên camera — vẫn xây được nhân hiệu qua text.\n\nNhiều học viên nói y chang bạn trước khi học. Sau module 2 họ tự viết được rồi 👌`
+    },
+    {
+      keys: ['hoàn tiền','hoan tien','đảm bảo','dam bao','bảo đảm','bao dam','rủi ro','rui ro','refund','không hài lòng'],
+      reply: `Có bảo đảm hoàn tiền 100% trong 30 ngày đầu.\n\nKhông hỏi lý do — chỉ cần nhắn tin là xong.\n\n300+ học viên, 85% thấy kết quả trong 30 ngày. Nhưng nếu bạn là 15% còn lại — mình hoàn tiền ngay 🛡️`
+    },
+    {
+      keys: ['khác gì','khac gi','so sánh','so sanh','khác với','khac voi','content marketing'],
+      reply: `Khoá khác thường dạy content chung — viết bài, tăng view, chạy ads.\n\nKhoá này tập trung vào nhân hiệu của riêng bạn — từ tìm định vị, tạo nội dung đúng hướng, đến kiếm tiền từ chuyên môn bạn đã có.\n\nKết quả đo bằng khách hàng và cơ hội — không phải lượt xem.`
+    },
+    {
+      keys: ['đắt','dat','cao quá','cao qua','kẹt tiền','ket tien','để nghĩ','de nghi','nghĩ thêm','nghi them'],
+      reply: `Mình hiểu.\n\n1.990.000₫ tương đương 2 buổi cà phê mỗi tuần trong 1 tháng — nhưng kết quả là hệ thống nhân hiệu chạy được nhiều năm.\n\nMà có bảo đảm hoàn tiền 30 ngày — nếu không đáng, nhắn là hoàn ngay. Bạn không có gì để mất 😊\n\nHoặc bạn điền form giữ chỗ trước, chưa cần thanh toán ngay — khi sẵn sàng thì báo mình.`
+    },
+    {
+      keys: ['đăng ký','dang ky','mua','giữ chỗ','giu cho','register','buy','chốt','chot','thanh toán','thanh toan'],
+      reply: `Ngon! Làm ngay đi 🚀\n\nBước 1: Điền form giữ chỗ (mất 2 phút)\nBước 2: Mình nhắn Zalo xác nhận trong 30 phút\nBước 3: Hướng dẫn thanh toán → cấp quyền truy cập ngay\n\n👉 Bấm nút bên dưới để điền form nhé!`,
+      action: 'form'
+    },
+    {
+      keys: ['xem thử','xem thu','thử trước','thu truoc','demo','xem trước','xem truoc'],
+      reply: `Được! Nhắn Zalo 0938481507 — Louis sẽ cho bạn xem thử 1 module trước khi quyết định.\n\nHoặc điền form giữ chỗ trước — không cần thanh toán ngay, giá giữ nguyên cho bạn.`
+    },
+    {
+      keys: ['kết quả','ket qua','bao lâu','bao lau','hiệu quả','hieu qua','thành công','thanh cong','ra kết quả'],
+      reply: `85% học viên thấy tăng trưởng follower và tương tác sau 30 ngày đầu.\n\nKết quả monetize (khách hàng, thu nhập) thường xuất hiện ở tuần 6–8 khi thương hiệu đủ mạnh.\n\nHọc viên điển hình:\n• Career coach: +3.200 follow, 2 hợp đồng coaching sau 45 ngày\n• Freelancer thiết kế: tăng giá gấp đôi\n• HR Manager: newsletter 1.200 người đọc trong 3 tháng`
+    },
+  ];
+
+  const DEFAULT_REPLY = `Câu hỏi hay đó 😄\n\nĐể trả lời chính xác nhất, bạn nhắn thẳng qua Zalo cho Louis nhé — phản hồi trong vài phút:\n👉 zalo.me/0938481507\n\nHoặc bạn muốn hỏi về: giá, nội dung khoá, hoàn tiền, hay đăng ký?`;
+
+  let chatOpened = false;
+
+  function toggleChat() {
+    const win = document.getElementById('chat-window');
+    const badge = document.getElementById('chat-badge');
+    win.classList.toggle('open');
+    badge.style.display = 'none';
+    if (!chatOpened) {
+      chatOpened = true;
+      setTimeout(() => addBotMsg(`Ê, chào bạn 👋\nMình là trợ lý của Louis — thenewrich.io.vn.\n\nBạn đang tìm hiểu về khoá học Xây Kênh Nhân Hiệu?\nCứ hỏi thẳng đi — mình trả lời hết 😄`), 400);
+    }
+  }
+
+  function addBotMsg(text, action) {
+    const box = document.getElementById('chat-messages');
+    const el = document.createElement('div');
+    el.className = 'msg-bot';
+    el.textContent = text;
+    box.appendChild(el);
+    if (action === 'form') {
+      const btn = document.createElement('a');
+      btn.href = '#dang-ky-form';
+      btn.className = 'msg-bot msg-link';
+      btn.style.cssText = 'display:block;text-align:center;padding:10px;margin-top:4px;background:#0d1f14;border:1px solid #22c55e44;border-radius:8px;text-decoration:none;font-size:13px;';
+      btn.textContent = '✅ Điền form giữ chỗ ngay →';
+      btn.onclick = () => document.getElementById('chat-window').classList.remove('open');
+      box.appendChild(btn);
+    }
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function addUserMsg(text) {
+    const box = document.getElementById('chat-messages');
+    const el = document.createElement('div');
+    el.className = 'msg-user';
+    el.textContent = text;
+    box.appendChild(el);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function getReply(text) {
+    const t = norm(text);
+
+    // Ưu tiên #1: check ngành/nghề nghiệp — match bất kỳ nghề nào
+    if (anyMatch(t, NGHE_NGHIEP)) {
+      return { reply: REPLY_NGANH };
+    }
+
+    // Các câu hỏi còn lại
+    for (const r of RESPONSES) {
+      if (anyMatch(t, r.keys)) return r;
+    }
+
+    return { reply: DEFAULT_REPLY };
+  }
+
+  function sendMsg() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    addUserMsg(text);
+    setTimeout(() => {
+      const r = getReply(text);
+      addBotMsg(r.reply, r.action);
+    }, 500);
+  }
+
+  function sendQuick(text) {
+    addUserMsg(text);
+    setTimeout(() => {
+      const r = getReply(text);
+      addBotMsg(r.reply, r.action);
+    }, 400);
+  }
+</script>
+
+<!-- Smooth scroll -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // FAQ: close others when one opens
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        document.querySelectorAll('.faq-item').forEach(other => {
+          if (other !== item) other.removeAttribute('open');
+        });
+      }
+    });
+  });
+
+  // QR tab switcher
+  function switchQR(pkg, btn) {
+    document.querySelectorAll('.qr-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.qr-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('qr-' + pkg).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Form submit → Google Sheets via Apps Script
+  // TODO: Thay GOOGLE_SCRIPT_URL bên dưới bằng Web App URL từ Google Apps Script
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxc7KQrZtgp_q5ms4ZfQ3kHmBl7OSXR8ZzvBJ8dW0pBGfUNleMYftvt8g5g92JS9xlW/exec';
+
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const form = document.getElementById('regForm');
+    const data = new FormData(form);
+    const payload = {
+      name: data.get('name'),
+      phone: data.get('phone'),
+      package: data.get('package'),
+      job: data.get('job') || '',
+      tried_before: data.get('tried_before') || '',
+      pain: data.get('pain') || '',
+      goal: data.get('goal') || '',
+      timestamp: new Date().toLocaleString('vi-VN')
+    };
+
+    btn.textContent = 'Đang gửi...';
+    btn.disabled = true;
+
+    if (GOOGLE_SCRIPT_URL === 'REPLACE_WITH_GOOGLE_APPS_SCRIPT_URL') {
+      // Dev mode: chưa có script URL, show success trực tiếp
+      setTimeout(() => showSuccess(), 800);
+      return;
+    }
+
+    const formData = new URLSearchParams();
+    Object.keys(payload).forEach(k => formData.append(k, payload[k]));
+
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    }).finally(() => showSuccess());
+  }
+
+  function showSuccess() {
+    document.getElementById('regForm').classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+  }
+</script>
+
+</body>
+</html>
