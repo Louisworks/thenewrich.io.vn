@@ -61,8 +61,8 @@
       <div>
         <label class="text-gray-400 text-sm font-semibold block mb-2">Chọn gói</label>
         <select id="f_product" class="form-input">
-          <option value="2" selected>VIP + Mentor — 3.990.000₫ (Phổ biến nhất)</option>
-          <option value="1">Tự Học — 1.990.000₫</option>
+          <option value="2" selected>VIP + Mentor — đang tải...</option>
+          <option value="1">Tự Học — đang tải...</option>
           <option value="3">🧪 Test — 2.000₫ (chỉ dùng để test)</option>
         </select>
       </div>
@@ -113,6 +113,16 @@
 <script>
   let currentOrderId = null;
   let pollInterval = null;
+
+  // Load prices from API
+  fetch('/api/products').then(r => r.json()).then(products => {
+    const fmt = n => new Intl.NumberFormat('vi-VN').format(n) + '₫';
+    const sel = document.getElementById('f_product');
+    products.forEach(p => {
+      const opt = sel.querySelector(`option[value="${p.id}"]`);
+      if (opt && p.id !== 3) opt.textContent = opt.textContent.replace(/—.*₫.*/, `— ${fmt(p.price)}${p.id === 2 ? ' (Phổ biến nhất)' : ''}`);
+    });
+  }).catch(() => {});
 
   document.getElementById('checkoutForm').addEventListener('submit', async function(e) {
     e.preventDefault();

@@ -561,7 +561,7 @@
       <!-- Basic -->
       <div class="card p-8">
         <div class="text-xs text-gray-500 uppercase tracking-widest font-bold mb-3">Tự Học</div>
-        <div class="text-4xl font-black text-white mb-1">1.990.000₫</div>
+        <div id="price-basic" class="text-4xl font-black text-white mb-1">1.990.000₫</div>
         <p class="text-gray-500 text-sm mb-7">Truy cập trọn đời · Cập nhật miễn phí</p>
         <ul class="space-y-3 mb-8 text-sm">
           <li><span class="check">✓</span><span class="text-gray-300">5 module video chi tiết (60+ bài giảng)</span></li>
@@ -578,7 +578,7 @@
       <div class="pricing-popular rounded-lg p-8 relative">
         <div class="absolute top-4 right-4" style="background:#22c55e; color:#000; font-size:11px; font-weight:900; padding: 3px 10px; border-radius:4px; letter-spacing:0.05em;">PHỔ BIẾN NHẤT</div>
         <div class="text-xs green uppercase tracking-widest font-bold mb-3">VIP + Mentor</div>
-        <div class="text-4xl font-black text-white mb-1">3.990.000₫</div>
+        <div id="price-vip" class="text-4xl font-black text-white mb-1">3.990.000₫</div>
         <p class="text-gray-400 text-sm mb-7">Truy cập trọn đời · Mentor 60 ngày</p>
         <ul class="space-y-3 mb-8 text-sm">
           <li><span class="check">✓</span><span class="text-gray-200">Tất cả từ gói Tự Học</span></li>
@@ -683,15 +683,15 @@
 
     <!-- QR Tabs -->
     <div class="flex gap-3 justify-center mb-6">
-      <button class="qr-tab active" onclick="switchQR('basic', this)">Gói Tự Học<br/><span style="font-size:12px;font-weight:900;">1.990.000₫</span></button>
-      <button class="qr-tab" onclick="switchQR('vip', this)">Gói VIP Mentor<br/><span style="font-size:12px;font-weight:900;">3.990.000₫</span></button>
+      <button class="qr-tab active" onclick="switchQR('basic', this)">Gói Tự Học<br/><span id="tab-price-basic" style="font-size:12px;font-weight:900;">1.990.000₫</span></button>
+      <button class="qr-tab" onclick="switchQR('vip', this)">Gói VIP Mentor<br/><span id="tab-price-vip" style="font-size:12px;font-weight:900;">3.990.000₫</span></button>
     </div>
 
     <div class="card p-6 mb-6">
       <!-- Basic QR -->
       <div id="qr-basic" class="qr-panel active">
         <img
-          src="https://img.vietqr.io/image/970407-10300495-compact2.png?amount=1990000&addInfo=THENEWRICH%20Tu%20Hoc&accountName=NGUYEN%20HUU%20THANH%20BINH"
+          id="qr-img-basic" src="https://img.vietqr.io/image/970407-10300495-compact2.png?amount=1990000&addInfo=THENEWRICH%20Tu%20Hoc&accountName=NGUYEN%20HUU%20THANH%20BINH"
           alt="QR Thanh toán Gói Tự Học"
           class="w-52 h-52 mx-auto rounded-lg mb-4"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
@@ -704,7 +704,7 @@
       <!-- VIP QR -->
       <div id="qr-vip" class="qr-panel">
         <img
-          src="https://img.vietqr.io/image/970407-10300495-compact2.png?amount=3990000&addInfo=THENEWRICH%20VIP&accountName=NGUYEN%20HUU%20THANH%20BINH"
+          id="qr-img-vip" src="https://img.vietqr.io/image/970407-10300495-compact2.png?amount=3990000&addInfo=THENEWRICH%20VIP&accountName=NGUYEN%20HUU%20THANH%20BINH"
           alt="QR Thanh toán Gói VIP"
           class="w-52 h-52 mx-auto rounded-lg mb-4"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
@@ -1291,6 +1291,31 @@
     document.getElementById('regForm').classList.add('hidden');
     document.getElementById('formSuccess').classList.remove('hidden');
   }
+
+  // Load prices dynamically
+  fetch('/api/products').then(r => r.json()).then(products => {
+    const fmt = n => new Intl.NumberFormat('vi-VN').format(n) + '₫';
+    products.forEach(p => {
+      if (p.id === 1) {
+        const f = fmt(p.price);
+        const el = document.getElementById('price-basic');
+        if (el) el.textContent = f;
+        const tab = document.getElementById('tab-price-basic');
+        if (tab) tab.textContent = f;
+        const qr = document.getElementById('qr-img-basic');
+        if (qr) qr.src = `https://img.vietqr.io/image/970407-10300495-compact2.png?amount=${p.price}&addInfo=THENEWRICH%20Tu%20Hoc&accountName=NGUYEN%20HUU%20THANH%20BINH`;
+      }
+      if (p.id === 2) {
+        const f = fmt(p.price);
+        const el = document.getElementById('price-vip');
+        if (el) el.textContent = f;
+        const tab = document.getElementById('tab-price-vip');
+        if (tab) tab.textContent = f;
+        const qr = document.getElementById('qr-img-vip');
+        if (qr) qr.src = `https://img.vietqr.io/image/970407-10300495-compact2.png?amount=${p.price}&addInfo=THENEWRICH%20VIP&accountName=NGUYEN%20HUU%20THANH%20BINH`;
+      }
+    });
+  }).catch(() => {});
 </script>
 
 </body>
